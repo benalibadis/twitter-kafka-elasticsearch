@@ -66,7 +66,6 @@ public class TwitterProducer {
         }));
 
         // loop to send tweets to kafka
-        // on a different thread, or multiple different threads....
         while (!client.isDone()) {
             String msg = null;
             try {
@@ -98,7 +97,6 @@ public class TwitterProducer {
 
         hosebirdEndpoint.trackTerms(terms);
 
-        // These secrets should be read from a config file
         Authentication hosebirdAuth = new OAuth1(consumerKey, consumerSecret, token, secret);
 
         ClientBuilder builder = new ClientBuilder()
